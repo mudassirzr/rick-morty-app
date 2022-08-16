@@ -1,0 +1,4 @@
+export enum CharactersActionTypes {
+    SET_CHARACTERS_DATA = 'SET_CHARACTERS_DATA',
+    CLEAR_CHARACTERS_DATA = 'CLEAR_CHARACTERS_DATA',
+}
