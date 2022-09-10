@@ -1,18 +1,37 @@
-// Create a React Pagination Component
-import { Grid } from '@mui/material';
-import {PaginationProps} from './types';
+import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
+import { Stack } from "@mui/system";
+import { PaginationProps } from "./types";
 
-export default function Pagination(props:PaginationProps){
-    const {pages, next, prev, onChangePage} = props;
-    return (
-        <Grid container>
-            <Grid xs={12} sm={6}>
-                <button disabled={prev===null} onClick={()=>prev===null?null:onChangePage(prev)}>Prev</button>
-                <button disabled={next===null} onClick={()=>next===null?null:onChangePage(next)}>Next</button>
-            </Grid>
-            <Grid xs={12} sm={6}>
-                <p>Page <strong>{next?next-1:prev?prev+1:1}</strong> of <strong>{pages}</strong></p>
-            </Grid>
-        </Grid>
-    )
+export default function Pagination(props: PaginationProps) {
+  const { pages, next, prev, onChangePage, loading } = props;
+  return (
+    <Grid container py={2} alignItems={"center"} justifyContent={"space-between"}>
+      <Grid xs={12} sm={6}>
+        <Typography variant="body1">
+          Page <strong>{next ? next - 1 : prev ? prev + 1 : 1}</strong> of{" "}
+          <strong>{pages}</strong>
+        </Typography>
+      </Grid>
+      <Stack direction="row" spacing={2}>
+        <Tooltip title="Previous Page">
+          <IconButton
+            disabled={prev === null || loading}
+            onClick={() => (prev === null ? null : onChangePage(prev))}
+            aria-label="delete"
+          >
+            {"<"}
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Next Page">
+          <IconButton
+            disabled={next === null || loading}
+            onClick={() => (next === null ? null : onChangePage(next))}
+            aria-label="delete"
+          >
+            {">"}
+          </IconButton>
+        </Tooltip>
+      </Stack>
+    </Grid>
+  );
 }

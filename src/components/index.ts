@@ -1,4 +1,7 @@
 export { default as Characters } from 'components/Characters'
+export { default as CharacterDetails } from 'components/CharacterDetails'
 export { default as Episodes } from 'components/Episodes'
 export { default as Locations } from 'components/Locations'
 export { default as Navigation } from 'components/Navigation'
+export { default as AppHead } from 'components/AppHead'
+export { default as Pagination } from 'components/Pagination'

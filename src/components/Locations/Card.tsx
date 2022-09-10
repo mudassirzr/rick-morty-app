@@ -1,32 +1,24 @@
 import { Grid } from "@mui/material";
-import { characterResult } from "state/types";
+import { locationResult } from "state/types";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import CharacterStatus from "./Status";
 import { useNavigate } from "react-router-dom";
 
-export default function CharacterCard(props: {
-  character: characterResult;
+export default function LocationCard(props: {
+  location: locationResult;
   key: number;
 }) {
-  const { character } = props;
+  const { location } = props;
   let navigate = useNavigate();
 
   return (
     <Card elevation={3} sx={{ minWidth: 250, alignSelf: 'stretch' }}>
-      <CardMedia
-        component="img"
-        height="200"
-        image={character.image}
-        alt={character.name}
-      />
       <CardContent>
         {/* <Button > */}
-          <Typography sx={{cursor: 'pointer', ":hover": { textDecoration: 'underline'}}} onClick={() => navigate(`/character/${character.id}`)} variant="h5">
-            {character.name} - {character.gender}
+          <Typography sx={{cursor: 'pointer', ":hover": { textDecoration: 'underline'}}} onClick={() => navigate(`/location/${location.id}`)} variant="h5">
+            {location.name}
           </Typography>
         {/* </Button> */}
       </CardContent>
@@ -34,15 +26,15 @@ export default function CharacterCard(props: {
         <Grid container>
           <Grid xs={12}>
             <Typography variant="body2" color="text.secondary">
-              First Seen in:{" "}
+              Dimension:{" "}
             </Typography>
-            <Button size="small">{character.episode[0].name}</Button>
+            <Button size="small">{location.dimension}</Button>
           </Grid>
           <Grid xs={12}>
             <Typography variant="body2" color="text.secondary">
-              Last known location
+              Type
             </Typography>
-            <Button size="small">{character.location.name}</Button>
+            <Button size="small">{location.type}</Button>
           </Grid>
         </Grid>
       </CardContent>
@@ -54,13 +46,9 @@ export default function CharacterCard(props: {
         }}
       >
         <Typography variant="body2" color="text.secondary">
-          Species:
+          Created:
           <br />
-          {character.species}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Status:
-          <CharacterStatus status={character.status} />
+          {new Date(location.created).toDateString()}
         </Typography>
       </CardContent>
     </Card>
