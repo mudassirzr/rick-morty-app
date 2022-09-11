@@ -5,7 +5,7 @@ import { bindActionCreators } from "@reduxjs/toolkit";
 import { useCallback, useEffect, useState } from "react";
 import Pagination from "components/Pagination";
 import { getCharactersData } from "services/api";
-import CharacterCard from "components/Characters/Card";
+import CharacterCard from "components/Characters/card";
 import CharacterCardLoading from "./LoadingCard";
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
