@@ -7,25 +7,38 @@ export default function EpisodeCardLoading() {
   return (
     <EnhancedCard>
       <CardContent>
-        <Typography
-          variant="h5"
-        >
-          <Skeleton animation="wave" variant="rounded" width={'100%'} height={40} />
+        <Typography variant="h5">
+          <Skeleton
+            animation="wave"
+            variant="rounded"
+            width={"100%"}
+            height={40}
+          />
         </Typography>
       </CardContent>
       <CardContent sx={{ paddingTop: 0, paddingBottom: 0 }}>
         <Grid spacing={2} container>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <Typography variant="body2" color="text.secondary">
-              Code:{" "}
+              <strong>Code: </strong>
             </Typography>
-            <Skeleton animation="wave" variant="rounded" width={100} height={20} />
+            <Skeleton
+              animation="wave"
+              variant="rounded"
+              width={100}
+              height={20}
+            />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <Typography variant="body2" color="text.secondary">
-              Air Date:
+              <strong>Air Date:</strong>
             </Typography>
-            <Skeleton animation="wave" variant="rounded" width={100} height={20} />
+            <Skeleton
+              animation="wave"
+              variant="rounded"
+              width={100}
+              height={20}
+            />
           </Grid>
         </Grid>
       </CardContent>
@@ -37,11 +50,15 @@ export default function EpisodeCardLoading() {
         }}
       >
         <Typography variant="body2" color="text.secondary">
-          Created:
+          <strong>Created:</strong>
           <br />
-          <Skeleton animation="wave" variant="rounded" width={100} height={20} />
+          <Skeleton
+            animation="wave"
+            variant="rounded"
+            width={100}
+            height={20}
+          />
         </Typography>
-        
       </CardContent>
     </EnhancedCard>
   );

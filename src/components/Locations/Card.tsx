@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import { locationResult } from "state/types";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import EnhancedCard from "components/common/GridCard";
 
 export default function LocationCard(props: {
@@ -27,13 +27,12 @@ export default function LocationCard(props: {
       </CardContent>
       <CardContent sx={{ paddingTop: 0, paddingBottom: 0 }}>
         <Grid container>
-          <Grid xs={12}>
+          <Grid mb={2} xs={12}>
             <Typography variant="body2" color="text.secondary">
               <strong>Dimension:</strong>
               <br />
               {location.dimension}
             </Typography>
-            
           </Grid>
           <Grid xs={12}>
             <Typography variant="body2" color="text.secondary">
@@ -52,7 +51,7 @@ export default function LocationCard(props: {
         }}
       >
         <Typography variant="body2" color="text.secondary">
-          Created:
+          <strong>Created:</strong>
           <br />
           {new Date(location.created).toDateString()}
         </Typography>

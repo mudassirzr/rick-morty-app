@@ -1,7 +1,6 @@
 import { Grid } from "@mui/material";
 import { episodeResult } from "state/types";
 import CardContent from "@mui/material/CardContent";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import EnhancedCard from "components/common/GridCard";

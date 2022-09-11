@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import { Typography } from "@mui/material";
+import { Skeleton, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { characterResult } from "state/types";
 import { getCharacterDetails } from "services/api";
@@ -20,11 +20,15 @@ export default function CharacterDetails({ id }: { id: number }) {
   return (
     <>
       <Typography variant="h2" mb={3} fontWeight={400}>
-        Characters
+        {characterDetails?.name?`Character - ${characterDetails?.name}`:<Skeleton height={80} width={300} />}
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
         <Container disableGutters maxWidth="lg">
-          {characterDetails ? <DetailsCard data={characterDetails}/>: <DetailsCardLoading showAvatar={true} />}
+          {characterDetails ? (
+            <DetailsCard data={characterDetails} />
+          ) : (
+            <DetailsCardLoading showAvatar={true} />
+          )}
         </Container>
       </Box>
     </>

@@ -43,7 +43,7 @@ export default function Episodes() {
         Episodes
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid mb={1} container spacing={5}>
+        <Grid mb={1} container spacing={2}>
           {!loading
             ? Object.values(results).map((episode: episodeResult) => (
                 <EpisodeCard key={episode.id} episode={episode} />

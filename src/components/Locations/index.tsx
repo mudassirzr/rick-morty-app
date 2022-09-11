@@ -43,7 +43,7 @@ export default function Locations() {
         Locations
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid mb={1} container spacing={5}>
+        <Grid mb={1} container spacing={2}>
           {!loading
             ? Object.values(results).map((location: locationResult) => (
                 <LocationCard key={location.id} location={location} />

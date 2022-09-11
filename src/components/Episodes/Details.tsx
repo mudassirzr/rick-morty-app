@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
+import { Skeleton, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { episodeResult } from "state/types";
 import { getEpisodeDetails } from "services/api";
@@ -21,7 +21,7 @@ export default function EpisodeDetails({ id }: { id: number }) {
   return (
     <>
       <Typography variant="h2" mb={3} fontWeight={400}>
-        Episodes
+      {episodeDetails?.name?`Episode - ${episodeDetails?.name}`:<Skeleton height={80} width={300} />}
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
         <Container disableGutters maxWidth="lg">

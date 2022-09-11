@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { Typography } from "@mui/material";
+import { Skeleton, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { locationResult } from "state/types";
 import { getLocationDetails } from "services/api";
@@ -21,7 +21,7 @@ export default function LocationDetails({ id }: { id: number }) {
   return (
     <>
       <Typography variant="h2" mb={3} fontWeight={400}>
-        Locations
+      {locationDetails?.name?`Location - ${locationDetails?.name}`:<Skeleton height={80} width={300} />}
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
         <Container disableGutters maxWidth="lg">
