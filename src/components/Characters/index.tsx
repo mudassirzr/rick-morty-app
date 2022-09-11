@@ -8,7 +8,7 @@ import { getCharactersData } from "services/api";
 import CharacterCard from "./Card";
 import CharacterCardLoading from "./LoadingCard";
 import { Grid, Typography } from "@mui/material";
-import { Box, shadows } from "@mui/system";
+import { Box } from "@mui/system";
 export default function Characters() {
   const [loading, setLoading] = useState(false);
   const characters: charactersState = useSelector(

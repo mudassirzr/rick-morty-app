@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom/client";
-// import './index.css';
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { EpisodesPage, CharactersPage, LocationsPage, CharacterDetailsPage, LocationDetailsPage, EpisodeDetailsPage } from "routes";
 import { store } from "state";
 import { Provider } from "react-redux";
