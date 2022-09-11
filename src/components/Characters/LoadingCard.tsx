@@ -1,12 +1,11 @@
 import { Grid, Skeleton } from "@mui/material";
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import EnhancedCard from "components/common/GridCard";
 
 export default function CharacterCardLoading() {
-    console.log('herere')
   return (
-    <Card elevation={3} sx={{ minWidth: 250, alignSelf: "stretch" }}>
+    <EnhancedCard>
       <Skeleton animation="wave" variant="rounded" width={'100%'} height={200} />
       <CardContent>
         <Typography
@@ -50,6 +49,6 @@ export default function CharacterCardLoading() {
         </Typography>
         
       </CardContent>
-    </Card>
+    </EnhancedCard>
   );
 }

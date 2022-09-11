@@ -1,12 +1,11 @@
 import { Grid, Skeleton } from "@mui/material";
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import EnhancedCard from "components/common/GridCard";
 
-export default function CharacterCardLoading() {
-    console.log('herere')
+export default function EpisodeCardLoading() {
   return (
-    <Card elevation={3} sx={{ minWidth: 250, alignSelf: "stretch" }}>
+    <EnhancedCard>
       <CardContent>
         <Typography
           variant="h5"
@@ -44,6 +43,6 @@ export default function CharacterCardLoading() {
         </Typography>
         
       </CardContent>
-    </Card>
+    </EnhancedCard>
   );
 }

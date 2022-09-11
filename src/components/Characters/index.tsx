@@ -8,7 +8,7 @@ import { getCharactersData } from "services/api";
 import CharacterCard from "./Card";
 import CharacterCardLoading from "./LoadingCard";
 import { Grid, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Box, shadows } from "@mui/system";
 export default function Characters() {
   const [loading, setLoading] = useState(false);
   const characters: charactersState = useSelector(
@@ -43,21 +43,15 @@ export default function Characters() {
         Characters
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={5}>
+        <Grid mb={1} container spacing={2}>
           {!loading
             ? Object.values(results).map((character: characterResult) => (
-                <Grid item xs={12} sm={6}>
-                  <CharacterCard key={character.id} character={character} />
-                </Grid>
+                <CharacterCard key={character.id} character={character} />
               ))
             : [
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
                 19, 20,
-              ].map((el, i) => (
-                <Grid key={i} item xs={12} sm={6}>
-                  <CharacterCardLoading />
-                </Grid>
-              ))}
+              ].map((el, i) => <CharacterCardLoading />)}
         </Grid>
       </Box>
       {

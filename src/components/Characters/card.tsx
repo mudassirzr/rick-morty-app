@@ -1,12 +1,11 @@
 import { Grid } from "@mui/material";
 import { characterResult } from "state/types";
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CharacterStatus from "./Status";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import EnhancedCard from "components/common/GridCard";
 
 export default function CharacterCard(props: {
   character: characterResult;
@@ -16,7 +15,7 @@ export default function CharacterCard(props: {
   let navigate = useNavigate();
 
   return (
-    <Card elevation={3} sx={{ minWidth: 250, alignSelf: 'stretch' }}>
+    <EnhancedCard>
       <CardMedia
         component="img"
         height="200"
@@ -24,25 +23,31 @@ export default function CharacterCard(props: {
         alt={character.name}
       />
       <CardContent>
-        {/* <Button > */}
-          <Typography sx={{cursor: 'pointer', ":hover": { textDecoration: 'underline'}}} onClick={() => navigate(`/character/${character.id}`)} variant="h5">
-            {character.name} - {character.gender}
-          </Typography>
-        {/* </Button> */}
+        {/* <Link > */}
+        <Typography
+          sx={{ cursor: "pointer", ":hover": { textDecoration: "underline" } }}
+          onClick={() => navigate(`/characters/${character.id}`)}
+          variant="h6"
+        >
+          {character.name} - {character.gender}
+        </Typography>
+        {/* </Link> */}
       </CardContent>
       <CardContent sx={{ paddingTop: 0, paddingBottom: 0 }}>
         <Grid container>
           <Grid xs={12}>
             <Typography variant="body2" color="text.secondary">
               First Seen in:{" "}
+              <br/>
+              <Link to={`/episode/${character.episode[0]?.id}`}>{character.episode[0].name}</Link>
             </Typography>
-            <Button size="small">{character.episode[0].name}</Button>
           </Grid>
           <Grid xs={12}>
             <Typography variant="body2" color="text.secondary">
               Last known location
+              <br />
+              <Link to={`/locations/${character?.location?.id}`}>{character.location.name}</Link>
             </Typography>
-            <Button size="small">{character.location.name}</Button>
           </Grid>
         </Grid>
       </CardContent>
@@ -63,6 +68,6 @@ export default function CharacterCard(props: {
           <CharacterStatus status={character.status} />
         </Typography>
       </CardContent>
-    </Card>
+    </EnhancedCard>
   );
 }

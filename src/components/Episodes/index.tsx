@@ -29,7 +29,6 @@ export default function Episodes() {
         return;
       }
       const data = await response.json();
-      console.log(data,'dataaa')
       data?.data?.episodes && setEpisodesData(data?.data?.episodes);
       setLoading(false);
     },
@@ -38,27 +37,22 @@ export default function Episodes() {
   useEffect(() => {
     Object.values(results).length === 0 && fetchEpisodes();
   }, []);
-  console.log(results,'resultss')
   return (
     <>
       <Typography variant="h2" mb={3} fontWeight={400}>
         Episodes
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={5}>
+        <Grid mb={1} container spacing={5}>
           {!loading
             ? Object.values(results).map((episode: episodeResult) => (
-                <Grid item xs={12} sm={6}>
-                  <EpisodeCard key={episode.id} episode={episode} />
-                </Grid>
+                <EpisodeCard key={episode.id} episode={episode} />
               ))
             : [
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
                 19, 20,
               ].map((el, i) => (
-                <Grid key={i} item xs={12} sm={6}>
-                  <EpisodeCardLoading />
-                </Grid>
+                <EpisodeCardLoading />
               ))}
         </Grid>
       </Box>

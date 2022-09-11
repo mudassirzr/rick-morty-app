@@ -100,3 +100,70 @@ export const getEpisodesData = async (page: number = 1) => {
   };
   return post(query);
 };
+
+export const getCharacterDetails = async (id: number = 1) => {
+  const query = {
+    query: `
+              {  character(id: ${id}) {    
+                  id
+                  name
+                  location {
+                      name
+                      id
+                  }
+                  image
+                  origin {
+                    name
+                    id
+                  }
+                  episode {
+                    name
+                    id
+                  }
+                  species
+                  status  
+                  gender
+                  created 
+            }
+          }`,
+  };
+  return post(query);
+};
+
+export const getEpisodeDetails = async (id: number = 1) => {
+  const query = {
+    query: `
+              {  episode(id: ${id}) {    
+                  id
+                  name
+                  air_date
+                  episode  
+                  characters {
+                    name
+                    id
+                  }
+                  created 
+              }
+          }`,
+  };
+  return post(query);
+};
+
+export const getLocationDetails = async (id: number = 1) => {
+  const query = {
+    query: `
+              {  location(id: ${id}) {
+                  id
+                  name
+                  type
+                  dimension  
+                  residents {
+                    name
+                    id
+                  }
+                  created  
+              }
+          }`,
+  };
+  return post(query);
+};

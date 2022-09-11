@@ -43,21 +43,15 @@ export default function Locations() {
         Locations
       </Typography>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={5}>
+        <Grid mb={1} container spacing={5}>
           {!loading
             ? Object.values(results).map((location: locationResult) => (
-                <Grid item xs={12} sm={6}>
-                  <LocationCard key={location.id} location={location} />
-                </Grid>
+                <LocationCard key={location.id} location={location} />
               ))
             : [
                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
                 19, 20,
-              ].map((el, i) => (
-                <Grid key={i} item xs={12} sm={6}>
-                  <LocationCardLoading />
-                </Grid>
-              ))}
+              ].map((el, i) => <LocationCardLoading />)}
         </Grid>
       </Box>
       {

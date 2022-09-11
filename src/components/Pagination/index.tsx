@@ -1,12 +1,13 @@
 import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { PaginationProps } from "./types";
+import {  } from '@mui/material/colors';
 
 export default function Pagination(props: PaginationProps) {
   const { pages, next, prev, onChangePage, loading } = props;
   return (
-    <Grid container py={2} alignItems={"center"} justifyContent={"space-between"}>
-      <Grid xs={12} sm={6}>
+    <Grid container bgcolor={"white"} px={2} position={"sticky"} bottom={"0"} alignItems={"center"} justifyContent={"space-between"}>
+      <Grid xs={6}>
         <Typography variant="body1">
           Page <strong>{next ? next - 1 : prev ? prev + 1 : 1}</strong> of{" "}
           <strong>{pages}</strong>

@@ -1,10 +1,10 @@
 import { Grid } from "@mui/material";
-import { episodeResult} from "state/types";
-import Card from "@mui/material/Card";
+import { episodeResult } from "state/types";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import EnhancedCard from "components/common/GridCard";
 
 export default function EpisodeCard(props: {
   episode: episodeResult;
@@ -14,27 +14,33 @@ export default function EpisodeCard(props: {
   let navigate = useNavigate();
 
   return (
-    <Card elevation={3} sx={{ minWidth: 250, alignSelf: 'stretch' }}>
+    <EnhancedCard>
       <CardContent>
-        {/* <Button > */}
-          <Typography sx={{cursor: 'pointer', ":hover": { textDecoration: 'underline'}}} onClick={() => navigate(`/episodes/${episode.id}`)} variant="h5">
-            {episode.name}
-          </Typography>
-        {/* </Button> */}
+        {/* <Link > */}
+        <Typography
+          sx={{ cursor: "pointer", ":hover": { textDecoration: "underline" } }}
+          onClick={() => navigate(`/episode/${episode.id}`)}
+          variant="h6"
+        >
+          {episode.name}
+        </Typography>
+        {/* </Link> */}
       </CardContent>
       <CardContent sx={{ paddingTop: 0, paddingBottom: 0 }}>
         <Grid container>
           <Grid xs={6}>
             <Typography variant="body2" color="text.secondary">
-              Code:{" "}
+              <strong>Code:{" "}</strong>
+              <br />{episode.episode}
             </Typography>
-            <Button size="small">{episode.episode}</Button>
           </Grid>
           <Grid xs={6}>
             <Typography variant="body2" color="text.secondary">
-              Air Date:
+              <strong>Air Date:</strong>
+              <br/>
+              {episode.air_date}
             </Typography>
-            <Typography>{episode.air_date}</Typography>
+            <Typography>{}</Typography>
           </Grid>
         </Grid>
       </CardContent>
@@ -46,11 +52,11 @@ export default function EpisodeCard(props: {
         }}
       >
         <Typography variant="body2" color="text.secondary">
-          Created:
+          <strong>Created:</strong>
           <br />
           {new Date(episode.created).toDateString()}
         </Typography>
       </CardContent>
-    </Card>
+    </EnhancedCard>
   );
 }

@@ -1,10 +1,9 @@
 import { Grid } from "@mui/material";
 import { locationResult } from "state/types";
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import EnhancedCard from "components/common/GridCard";
 
 export default function LocationCard(props: {
   location: locationResult;
@@ -14,27 +13,34 @@ export default function LocationCard(props: {
   let navigate = useNavigate();
 
   return (
-    <Card elevation={3} sx={{ minWidth: 250, alignSelf: 'stretch' }}>
+    <EnhancedCard>
       <CardContent>
-        {/* <Button > */}
-          <Typography sx={{cursor: 'pointer', ":hover": { textDecoration: 'underline'}}} onClick={() => navigate(`/location/${location.id}`)} variant="h5">
-            {location.name}
-          </Typography>
-        {/* </Button> */}
+        {/* <Link > */}
+        <Typography
+          sx={{ cursor: "pointer", ":hover": { textDecoration: "underline" } }}
+          onClick={() => navigate(`/locations/${location.id}`)}
+          variant="h6"
+        >
+          {location.name}
+        </Typography>
+        {/* </Link> */}
       </CardContent>
       <CardContent sx={{ paddingTop: 0, paddingBottom: 0 }}>
         <Grid container>
           <Grid xs={12}>
             <Typography variant="body2" color="text.secondary">
-              Dimension:{" "}
+              <strong>Dimension:</strong>
+              <br />
+              {location.dimension}
             </Typography>
-            <Button size="small">{location.dimension}</Button>
+            
           </Grid>
           <Grid xs={12}>
             <Typography variant="body2" color="text.secondary">
-              Type
+            <strong>Type:</strong>
+              <br />
+              {location.type}
             </Typography>
-            <Button size="small">{location.type}</Button>
           </Grid>
         </Grid>
       </CardContent>
@@ -51,6 +57,6 @@ export default function LocationCard(props: {
           {new Date(location.created).toDateString()}
         </Typography>
       </CardContent>
-    </Card>
+    </EnhancedCard>
   );
 }
